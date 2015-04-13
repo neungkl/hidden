@@ -1,0 +1,16 @@
+{
+  "name": "Hidden",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kosate/hidden",
+  "authors": [
+    "kozartaeneung <kosatelim@gmail.com>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "polymer": "Polymer/polymer#0.5"
+  }
+}
