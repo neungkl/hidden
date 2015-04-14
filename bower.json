@@ -10,7 +10,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "jquery": "~2.1.3",
-    "polymer": "Polymer/polymer#0.5"
+    "paper-button": "polymer/paper-button#0.5",
+    "polymer": "polymer/polymer#0.5"
   }
 }
