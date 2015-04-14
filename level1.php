@@ -1,4 +1,10 @@
 <?php
+
+  if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+    require_once("password.php");
+    exit( authen( "level1",$_POST["pass"] ) );
+  }
+
   require_once("include.php");
 ?>
 
@@ -72,20 +78,30 @@
       CoreStyle.g.paperInput.focusedColor = "#d50000";
       CoreStyle.g.paperInput.invalidColor = "#d50000";
 
+      function err( txt ) {
+        $("#err").attr("text",txt)[0].show();
+      }
+
       function submit() {
         var pass = $("#password-inp").val();
-        $("#err").attr("text",pass)[0].show();
+        $.ajax({
+          url : "level1.php",
+          type : "post",
+          data : "pass="+pass,
+          success: function(res) {
+            if( res == -1 ) {
+              err("Password incorrect.");
+            } else {
+              location.href = res;
+            }
+          },
+          error: function() {
+            err("Could not connect to internet");
+          }
+        });
       }
 
       $(function() {
-        setInterval(function() {
-          if( $("#logo-text").text() == "Hidden" ) {
-            $("#logo-text").text("H_dden");
-          } else {
-            $("#logo-text").text("Hidden");
-          }
-        },750);
-
         $("#password-inp").keypress(function(e) {
           if( e.which == 13 ) {
             submit();
