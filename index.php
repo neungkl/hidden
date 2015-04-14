@@ -32,6 +32,11 @@
       #play {
         background-color: #FFF;
         color: #111;
+        margin: 10px 20px;
+      }
+      #play a {
+        height: auto;
+        color: #111;
       }
       @media screen and ( max-width: 40em ) {
         .block:before {
@@ -54,7 +59,7 @@
       <div class="medium-6 small-12 columns">
         <div class="block">
           <div class="centered">
-            <paper-button id="play" raised>Play</paper-button>
+            <paper-button id="play" raised><a href="level1.php">Play</a></paper-button>
           </div>
         </div>
       </div>

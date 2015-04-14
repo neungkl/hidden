@@ -11,6 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "paper-button": "polymer/paper-button#0.5",
-    "polymer": "polymer/polymer#0.5"
+    "polymer": "polymer/polymer#0.5",
+    "paper-input": "polymer/paper-input#0.5",
+    "paper-toast": "Polymer/paper-toast#0.5"
   }
 }
