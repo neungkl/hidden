@@ -59,7 +59,7 @@
       <div class="medium-6 small-12 columns">
         <div class="block">
           <div class="centered">
-            <paper-button id="play" raised><a href="level1.php">Play</a></paper-button>
+            <paper-button id="play" raised><a href="game/level1.php">Play</a></paper-button>
           </div>
         </div>
       </div>

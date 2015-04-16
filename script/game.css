@@ -1,0 +1,29 @@
+body {
+  font-family: 'Droid Sans Mono', Arial, sans-serif;
+  background: #111;
+  color: #FFF;
+}
+.block {
+  text-align: center;
+  white-space: nowrap;
+}
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 300px;
+}
+#play {
+  background-color: #FFF;
+  color: #111;
+}
+@media screen and ( max-width: 40em ) {
+  .block:before {
+    height: 50%;
+  }
+}

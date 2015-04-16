@@ -2,12 +2,12 @@
   session_start();
 
   if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
-    require_once("password.php");
+    require_once("../password.php");
     $_SESSION["level1"] = $_POST["pass"];
     exit( authen( "level1",$_POST["pass"] ) );
   }
 
-  require_once("include.php");
+  require_once("../include.php");
 ?>
 
 <html>
@@ -16,42 +16,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hidden</title>
-    <?php include_css(); ?>
-    <link rel="import" href="bower_components/paper-input/paper-input-decorator.html">
-    <link rel="import" href="bower_components/paper-input/paper-char-counter.html">
-    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
-    <style>
-      body {
-        font-family: 'Droid Sans Mono', Arial, sans-serif;
-        background: #111;
-        color: #FFF;
-      }
-      .block {
-        text-align: center;
-        white-space: nowrap;
-      }
-      .block:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-      }
-      .centered {
-        display: inline-block;
-        vertical-align: middle;
-        width: 300px;
-      }
-      #play {
-        background-color: #FFF;
-        color: #111;
-      }
-      @media screen and ( max-width: 40em ) {
-        .block:before {
-          height: 50%;
-        }
-      }
-    </style>
-
+    <?php include_css("../"); ?>
+    <?php include_game_header("../"); ?>
   </head>
   <body>
 
@@ -75,7 +41,7 @@
       <paper-toast id="err" text="Your draft has been discarded." style="background-color:#d50000;" onclick="discardDraft(el)"></paper-toast>
     </div>
 
-    <?php include_js(); ?>
+    <?php include_js("../"); ?>
     <script>
       CoreStyle.g.paperInput.focusedColor = "#d50000";
       CoreStyle.g.paperInput.invalidColor = "#d50000";
