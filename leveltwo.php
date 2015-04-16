@@ -2,9 +2,25 @@
   session_start();
 
   require_once("password.php");
+
+  $prev_path = "level1.php";
+  $cur_path = "leveltwo.php";
+
+  $level_num = 2;
+
+  $prev_level = "level".($level_num-1);
+  $cur_level = "level".$level_num;
+
   if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
-    $_SESSION["level2"] = $_POST["pass"];
-    exit( authen( "level2",$_POST["pass"] ) );
+    $_SESSION[$cur_level] = $_POST["pass"];
+    $tmp = authen( $cur_level,$_POST["pass"] );
+    if( $tmp != "-1" ) {
+      exit( $tmp );
+    } else if( authen( $cur_level,strtolower($_POST["pass"]) ) != "-1" ) {
+      exit( "near" );
+    } else {
+      exit( "-1" );
+    }
   }
 
   require_once("include.php");
@@ -56,21 +72,21 @@
   <body>
 
     <?php
-    if( !isset($_SESSION["level1"]) || authen("level1",$_SESSION["level1"]) != "leveltwo.php" ) {
+    if( !isset($_SESSION[$prev_level]) || authen($prev_level,$_SESSION[$prev_level]) != $cur_path ) {
     ?>
     <div class="row">
       <div class="small-12 columns"
         <div class="block">
           <div class="block">
             <div class="centered">
-              <div style="font-size:1.5em;">Enter Level 1 Password</div>
+              <div style="font-size:1.5em;">Enter Level <?= $level_num-1 ?> Password</div>
               <div>For identifying that you are not a hacker :D</div>
               <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
                 <input id="iden-inp" is="core-input" maxlength="20" placeholder="" aria-label="password">
                 <paper-char-counter class="counter" target="iden-inp"></paper-char-counter>
               </paper-input-decorator>
 
-              <paper-button style="background-color:#d50000;" onclick="submit_iden()">Enter</paper-button>
+              <paper-button style="background-color:#d50000;" onclick="submit_iden('<?= $prev_path ?>','<?= $cur_path ?>')">Enter</paper-button>
             </div>
           </div>
         </div>
@@ -83,9 +99,9 @@
       <div class="small-12 columns">
         <div class="block">
           <div class="centered">
-            <div style="font-size:2.5em;">Level 2</div>
+            <div style="font-size:2.5em;">Level <?= $level_num ?></div>
             <div>Highlight</div>
-            <div style="color:#111;">AAA</div>
+            <div style="color:#111;">Password is Lava</div>
             <div  style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
@@ -105,22 +121,23 @@
     <paper-toast id="err" text="Your draft has been discarded." style="background-color:#d50000;" onclick="discardDraft(el)"></paper-toast>
 
     <?php include_js(); ?>
+    <script src="script/checker.js"></script>
     <script>
-      CoreStyle.g.paperInput.focusedColor = "#d50000";
-      CoreStyle.g.paperInput.invalidColor = "#d50000";
-
-      function err( txt ) {
-        $("#err").attr("text",txt)[0].show();
-      }
 
       function submit() {
         var pass = $("#password-inp").val();
+        if( pass.toLowerCase() == "highlight" ) {
+          err("It's not a password. It's a verb !!");
+          return ;
+        }
         $.ajax({
-          url : "leveltwo.php",
+          url : "<?= $cur_path ?>",
           type : "post",
           data : "pass="+pass,
           success: function(res) {
-            if( res == -1 ) {
+            if( res == "near" ) {
+              err( "Do you know about lower case and upper case ?" );
+            } else if( res == -1 ) {
               err("Password incorrect.");
             } else {
               location.href = res;
@@ -132,38 +149,6 @@
         });
       }
 
-      function submit_iden() {
-        var pass = $("#iden-inp").val();
-        $.ajax({
-          url : "level1.php",
-          type : "post",
-          data : "pass="+pass+"&iden=1",
-          success: function(res) {
-            if( res == "leveltwo.php" ) {
-              window.location.reload();
-            } else {
-              err("Password incorrect.");
-            }
-          },
-          error: function() {
-            err("Could not connect to internet");
-          }
-        });
-      }
-
-      $(function() {
-        $("#password-inp").keypress(function(e) {
-          if( e.which == 13 ) {
-            submit();
-          }
-        });
-
-        $("#iden-inp").keypress(function(e) {
-          if( e.which == 13 ) {
-            submit_iden();
-          }
-        });
-      });
     </script>
-  </b ody>
+  </body>
 </html>

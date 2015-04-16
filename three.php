@@ -1,10 +1,19 @@
 <?php
   session_start();
 
+  require_once("password.php");
+
+  $prev_path = "leveltwo.php";
+  $cur_path = "three.php";
+
+  $level_num = 3;
+
+  $prev_level = "level".($level_num-1);
+  $cur_level = "level".$level_num;
+
   if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
-    require_once("password.php");
-    $_SESSION["level1"] = $_POST["pass"];
-    exit( authen( "level1",$_POST["pass"] ) );
+    $_SESSION[$cur_level] = $_POST["pass"];
+    exit( authen( $cur_level,$_POST["pass"] ) );
   }
 
   require_once("include.php");
@@ -39,7 +48,7 @@
       .centered {
         display: inline-block;
         vertical-align: middle;
-        width: 300px;
+        min-width: 300px;
       }
       #play {
         background-color: #FFF;
@@ -55,12 +64,38 @@
   </head>
   <body>
 
+    <?php
+    if( !isset($_SESSION[$prev_level]) || authen($prev_level,$_SESSION[$prev_level]) != $cur_path ) {
+    ?>
+    <div class="row">
+      <div class="small-12 columns"
+        <div class="block">
+          <div class="block">
+            <div class="centered">
+              <div style="font-size:1.5em;">Enter Level <?= $level_num-1 ?> Password</div>
+              <div>For identifying that you are not a hacker :D</div>
+              <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
+                <input id="iden-inp" is="core-input" maxlength="20" placeholder="" aria-label="password">
+                <paper-char-counter class="counter" target="iden-inp"></paper-char-counter>
+              </paper-input-decorator>
+
+              <paper-button style="background-color:#d50000;" onclick="submit_iden('<?= $prev_path ?>','<?= $cur_path ?>')">Enter</paper-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+    } else {
+    ?>
     <div class="row">
       <div class="small-12 columns">
         <div class="block">
           <div class="centered">
-            <div style="font-size:2.5em;">Level 1</div>
-            <div style="margin-bottom:40px;">Password is apple</div>
+            <div style="font-size:2.5em;">Level <?= $level_num ?></div>
+            <div>Highlight</div>
+            <div style="color:#111;">AAA</div>
+            <div  style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
               <input id="password-inp" is="core-input" maxlength="20" placeholder="" aria-label="password">
@@ -71,23 +106,21 @@
           </div>
         </div>
       </div>
-
-      <paper-toast id="err" text="Your draft has been discarded." style="background-color:#d50000;" onclick="discardDraft(el)"></paper-toast>
     </div>
+    <?php
+    }
+    ?>
+
+    <paper-toast id="err" text="Your draft has been discarded." style="background-color:#d50000;" onclick="discardDraft(el)"></paper-toast>
 
     <?php include_js(); ?>
+    <script src="script/checker.js"></script>
     <script>
-      CoreStyle.g.paperInput.focusedColor = "#d50000";
-      CoreStyle.g.paperInput.invalidColor = "#d50000";
-
-      function err( txt ) {
-        $("#err").attr("text",txt)[0].show();
-      }
 
       function submit() {
         var pass = $("#password-inp").val();
         $.ajax({
-          url : "level1.php",
+          url : "<?= $cur_path ?>",
           type : "post",
           data : "pass="+pass,
           success: function(res) {
@@ -103,13 +136,6 @@
         });
       }
 
-      $(function() {
-        $("#password-inp").keypress(function(e) {
-          if( e.which == 13 ) {
-            submit();
-          }
-        });
-      });
     </script>
   </body>
 </html>
