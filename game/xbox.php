@@ -12,8 +12,8 @@
   $cur_level = "level".$level_num;
 
   if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
-    $_SESSION[$cur_level] = $_POST["pass"];
-    exit( authen( $cur_level,$_POST["pass"] ) );
+    $_SESSION[$cur_level] = strtolower( $_POST["pass"] );
+    exit( authen( $cur_level,$_SESSION[$cur_level] ) );
   }
 
   require_once("../include.php");
@@ -81,7 +81,7 @@
             <div style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
-              <input id="password-inp" is="core-input" maxlength="20" placeholder="" aria-label="password">
+              <input id="password-inp" is="core-input" maxlength="30" placeholder="" aria-label="password">
               <paper-char-counter class="counter" target="password-inp"></paper-char-counter>
             </paper-input-decorator>
 
@@ -102,10 +102,6 @@
 
       function submit() {
         var pass = $("#password-inp").val();
-        if( pass == "5.85987448205" ) {
-          err("Too easy for plus two number");
-          return ;
-        }
         $.ajax({
           url : "<?= $cur_path ?>",
           type : "post",

@@ -44,7 +44,7 @@
             <div style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
-              <input id="password-inp" is="core-input" maxlength="20" placeholder="" aria-label="password">
+              <input id="password-inp" is="core-input" maxlength="30" placeholder="" aria-label="password">
               <paper-char-counter class="counter" target="password-inp"></paper-char-counter>
             </paper-input-decorator>
 

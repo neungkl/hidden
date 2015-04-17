@@ -30,7 +30,7 @@ function include_identifying( $level_num, $prev_path, $cur_path ) {
             <div style="font-size:1.5em;">Enter Level <?= $level_num ?> Password</div>
             <div>For identifying that you are not a hacker :D</div>
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
-              <input id="iden-inp" is="core-input" maxlength="20" placeholder="" aria-label="password">
+              <input id="iden-inp" is="core-input" maxlength="30" placeholder="" aria-label="password">
               <paper-char-counter class="counter" target="iden-inp"></paper-char-counter>
             </paper-input-decorator>
 
