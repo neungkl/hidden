@@ -53,6 +53,7 @@ function include_game_header( $path = "" ) {
 }
 
 function include_game_footer( $path = "" ) {
-
+  ?>
+  <?php
 }
 ?>
