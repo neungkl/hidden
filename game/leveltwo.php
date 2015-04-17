@@ -65,7 +65,9 @@
     }
     ?>
 
-    <paper-toast id="err" text="Your draft has been discarded." style="background-color:#d50000;" onclick="discardDraft(el)"></paper-toast>
+    <paper-toast id="err" text="" style="background-color:#d50000;" onclick="discardDraft(el)"></paper-toast>
+
+    <?php include_game_footer(); ?>
 
     <?php include_js("../"); ?>
     <script src="../script/checker.js"></script>

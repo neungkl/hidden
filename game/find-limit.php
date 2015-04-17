@@ -3,10 +3,10 @@
 
   require_once("../password.php");
 
-  $prev_path = "random-words.php";
-  $cur_path = "what-your-have.php";
+  $prev_path = "what-your-have.php";
+  $cur_path = "find-limit.php";
 
-  $level_num = 10;
+  $level_num = 11;
 
   $prev_level = "level".($level_num-1);
   $cur_level = "level".$level_num;
@@ -40,7 +40,7 @@
         <div class="block">
           <div class="centered">
             <div style="font-size:2.5em;">Level <?= $level_num ?></div>
-            <div>Above of zxcvbnm</div>
+            <div>Password is <span id="counter">1</span></div>
             <div style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
@@ -64,7 +64,11 @@
     <?php include_js("../"); ?>
     <script src="../script/checker.js"></script>
     <script>
-
+      $(function() {
+        setInterval(function() {
+          $("#counter").text( Number($("#counter").text())+1 );
+        },1000);
+      });
       function submit() {
         var pass = $("#password-inp").val();
         $.ajax({

@@ -51,4 +51,8 @@ function include_game_header( $path = "" ) {
   <link rel="stylesheet" href="<?= $path ?>script/game.css">
   <?php
 }
+
+function include_game_footer( $path = "" ) {
+
+}
 ?>
