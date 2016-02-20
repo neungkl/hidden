@@ -1,12 +1,7 @@
 <?php
   session_start();
 
-  if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
-    require_once("../password.php");
-    $_SESSION["level1"] = $_POST["pass"];
-    exit( authen( "level1",$_POST["pass"] ) );
-  }
-
+  $lvl_num = 1;
   require_once("../include.php");
 ?>
 
@@ -26,7 +21,7 @@
         <div class="block">
           <div class="centered">
             <div style="font-size:2.5em;">Level 1</div>
-            <div style="margin-bottom:40px;">Password is apple</div>
+            <div style="margin-bottom:40px;">Password is android.</div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
               <input id="password-inp" is="core-input" maxlength="30" placeholder="" aria-label="password">
@@ -44,40 +39,5 @@
     <?php include_game_footer(); ?>
 
     <?php include_js("../"); ?>
-    <script>
-      CoreStyle.g.paperInput.focusedColor = "#d50000";
-      CoreStyle.g.paperInput.invalidColor = "#d50000";
-
-      function err( txt ) {
-        $("#err").attr("text",txt)[0].show();
-      }
-
-      function submit() {
-        var pass = $("#password-inp").val();
-        $.ajax({
-          url : "level1.php",
-          type : "post",
-          data : "pass="+pass,
-          success: function(res) {
-            if( res == -1 ) {
-              err("Password incorrect.");
-            } else {
-              location.href = res;
-            }
-          },
-          error: function() {
-            err("Could not connect to internet");
-          }
-        });
-      }
-
-      $(function() {
-        $("#password-inp").keypress(function(e) {
-          if( e.which == 13 ) {
-            submit();
-          }
-        });
-      });
-    </script>
   </body>
 </html>

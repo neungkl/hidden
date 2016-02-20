@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $lvl_num = 9;
+  $lvl_num = 13;
   require_once("../password.php");
   require_once("../include.php");
 ?>
@@ -27,12 +27,7 @@
         <div class="block">
           <div class="centered">
             <div style="font-size:2.5em;">Level <?= $lvl_num ?></div>
-            <div>
-            A Message<br>
-            Low<br>
-            The Hardest Part<br>
-            ????
-            </div>
+            <div>|0| = ??? C</div>
             <div style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>

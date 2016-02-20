@@ -1,19 +1,20 @@
+'use strict';
+
 CoreStyle.g.paperInput.focusedColor = "#d50000";
 CoreStyle.g.paperInput.invalidColor = "#d50000";
 
-function err( txt ) {
+var err = function( txt ) {
   $("#err").attr("text",txt)[0].show();
-}
+};
 
-function submit_iden( prev,cur ) {
-  var pass = $("#iden-inp").val();
+function submit_iden() {
+  var pass = encodeURIComponent($("#iden-inp").val());
   $.ajax({
-    url : prev,
+    url : "../password.php",
     type : "post",
-    data : "pass="+pass+"&iden=1",
+    data : "lvl="+lvl_num+"&pass="+pass+"&iden=1",
     success: function(res) {
-      console.log( res );
-      if( res == cur ) {
+      if(res == 'correct') {
         window.location.reload();
       } else {
         err("Password incorrect.");
@@ -21,6 +22,27 @@ function submit_iden( prev,cur ) {
     },
     error: function() {
       err("Could not connect to internet");
+    }
+  });
+}
+
+function submit() {
+  var pass = encodeURIComponent($("#password-inp").val());
+  $.ajax({
+    url : "../password.php",
+    type : "post",
+    data : "lvl="+lvl_num+"&pass="+pass,
+    dataType : 'json',
+    success: function(res) {
+      if(res.status != 'correct') {
+        err(res.msg);
+      } else {
+        location.href = res.path;
+      }
+    },
+    error: function(errMsg) {
+      console.log(errMsg);
+      err("Something wrong with internet connection or server :(");
     }
   });
 }
@@ -38,3 +60,6 @@ $(function() {
     }
   });
 });
+
+
+      
