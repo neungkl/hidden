@@ -27,7 +27,7 @@
         <div class="block">
           <div class="centered">
             <div style="font-size:2.5em;">Level <?= $lvl_num ?></div>
-            <div>What is the next of USA ?</div>
+            <div>What is next of USA ?</div>
             <div style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
