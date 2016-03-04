@@ -145,5 +145,7 @@
         });
       }
     </script>
+
+    <?= include_anlytics(); ?>
   </body>
 </html>

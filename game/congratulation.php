@@ -94,5 +94,7 @@
         $('.stat').text(res);
       });
     </script>
+
+    <?= include_anlytics(); ?>
   </body>
 </html>

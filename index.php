@@ -106,8 +106,10 @@
       </div>
     </div>
 
-    <?php include_js(); ?>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <script type="text/javascript">
       $(function() {
         setInterval(function() {
           if( $("#logo-text").text() == "Hidden" ) {
@@ -118,5 +120,7 @@
         },750);
       });
     </script>
+
+    <?= include_anlytics(); ?>
   </body>
 </html>
