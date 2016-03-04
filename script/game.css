@@ -16,14 +16,22 @@ body {
 .centered {
   display: inline-block;
   vertical-align: middle;
-  min-width: 300px;
+  width: 100%;
+}
+.centered * {
+  white-space:normal; word-wrap: break-word;
 }
 #play {
   background-color: #FFF;
   color: #111;
 }
-@media screen and ( max-width: 40em ) {
-  .block:before {
-    height: 50%;
+@media screen and (min-width: 30em) {
+  .centered {
+    width : 300px;
+  }  
+}
+@media only screen {
+  .column, .columns {
+    padding-right: 1.875rem;
   }
 }

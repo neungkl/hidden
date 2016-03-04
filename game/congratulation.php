@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $lvl_num = 5;
+  $lvl_num = 26;
   require_once("../password.php");
   require_once("../include.php");
 ?>
@@ -14,6 +14,22 @@
     <title>Hidden</title>
     <?php include_css("../"); ?>
     <?php include_game_header("../"); ?>
+    <style>
+      .head {
+        font-size: 2.5em;
+      }
+      .centered {
+        width: 400px;
+      }
+      @media screen and (max-width: 40em) {
+        .head {
+          font-size: 2em;
+        }
+        .centered {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
 
@@ -26,19 +42,12 @@
       <div class="small-12 columns">
         <div class="block">
           <div class="centered">
-            <div style="font-size:2.5em;">Level <?= $lvl_num ?></div>
-            <div>Find the missing word</div>
-            <div style="margin-top:10px; font-size: 0.9em;">
-              Lorem ipsum dolor sit amet, consectetur ????? elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
+            <div class="head">Congratulation</div>
+            <div>You pass all levels.</div>
             <div style="margin-bottom:40px;"></div>
 
-            <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
-              <input id="password-inp" is="core-input" maxlength="30" placeholder="" aria-label="password">
-              <paper-char-counter class="counter" target="password-inp"></paper-char-counter>
-            </paper-input-decorator>
 
-            <paper-button style="background-color:#d50000;" onclick="submit()">Enter</paper-button>
+            <paper-button style="background-color:#d50000; width:200px;" onclick="submit()">Go to Main Page</paper-button>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@
   }
 
   function safe_pass($pass) {
-    return mysql_real_escape_string(strtolower($pass));
+    return trim(mysql_real_escape_string(strtolower($pass)));
   }
 
   function pass_iden() {

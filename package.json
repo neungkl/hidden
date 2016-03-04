@@ -1,0 +1,24 @@
+{
+  "name": "hidden",
+  "version": "1.0.0",
+  "description": "Mini Project in Kosatestudio.com",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kosate/hidden.git"
+  },
+  "author": "Kosate Limpongsa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kosate/hidden/issues"
+  },
+  "homepage": "https://github.com/kosate/hidden#readme",
+  "devDependencies": {
+    "crypto": "0.0.3",
+    "gulp": "^3.9.1",
+    "yargs": "^4.2.0"
+  }
+}

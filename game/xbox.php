@@ -26,8 +26,8 @@
       <div class="small-12 columns">
         <div class="block">
           <div class="centered">
-            <div style="font-size:2.5em;">Level <?= $lvl_num ?></div>
-            <div style="font-size:0.6em;">
+            <div style="font-size:2em; margin-top:20px;">Level <?= $lvl_num ?></div>
+            <div style="font-size:0.5em; margin-top: 10px;">
               xbox xbox xbox xbox xbox xbox xbox xbox xbox xbox<br>
               xbox xbox xbox xbox xbox xbox xbox xbox xbox xbox<br>
               xbox xbox xbox xbox xbox xbox xbox xbox xbox xbox<br>
@@ -72,7 +72,7 @@
               <paper-char-counter class="counter" target="password-inp"></paper-char-counter>
             </paper-input-decorator>
 
-            <paper-button style="background-color:#d50000;" onclick="submit()">Enter</paper-button>
+            <paper-button style="background-color:#d50000; margin-bottom: 20px;" onclick="submit()">Enter</paper-button>
           </div>
         </div>
       </div>

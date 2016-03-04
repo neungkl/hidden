@@ -33,7 +33,7 @@ function include_identifying() {
       <div class="block">
         <div class="block">
           <div class="centered">
-            <div style="font-size:1.5em;">Enter Level <?= $lvl_num ?> Password</div>
+            <div style="font-size:1.5em;">Enter Level <?= $lvl_num-1 ?> Password</div>
             <div>For identifying that you are not a hacker :D</div>
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>
               <input id="iden-inp" is="core-input" maxlength="30" placeholder="" aria-label="password">
@@ -51,6 +51,7 @@ function include_identifying() {
 
 function include_game_header( $path = "" ) {
   ?>
+  <meta name="robots" content="noindex" />
   <link rel="import" href="<?= $path ?>bower_components/paper-input/paper-input-decorator.html">
   <link rel="import" href="<?= $path ?>bower_components/paper-input/paper-char-counter.html">
   <link rel="import" href="<?= $path ?>bower_components/paper-toast/paper-toast.html">

@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $lvl_num = 5;
+  $lvl_num = 23;
   require_once("../password.php");
   require_once("../include.php");
 ?>
@@ -27,10 +27,7 @@
         <div class="block">
           <div class="centered">
             <div style="font-size:2.5em;">Level <?= $lvl_num ?></div>
-            <div>Find the missing word</div>
-            <div style="margin-top:10px; font-size: 0.9em;">
-              Lorem ipsum dolor sit amet, consectetur ????? elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
+            <div>3 6 8 12 15 6</div>
             <div style="margin-bottom:40px;"></div>
 
             <paper-input-decorator style="text-align:left;" label="password" error="Too long" layout="" vertical="" class="" floatingLabel>

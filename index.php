@@ -42,6 +42,14 @@
         .block:before {
           height: 50%;
         }
+        .text-head {
+          font-size: 4em;
+        }
+      }
+      @media screen and (min-width: 40em) {
+        .text-head {
+          font-size: 5em;
+        }
       }
     </style>
   </head>
@@ -51,7 +59,7 @@
       <div class="medium-6 small-12 columns">
         <div class="block">
           <div class="centered">
-            <div style="font-size:5em;" id="logo-text">Hidden</div>
+            <div class="text-head" id="logo-text">Hidden</div>
             The place you can not exit.
           </div>
         </div>
@@ -60,6 +68,9 @@
         <div class="block">
           <div class="centered">
             <paper-button id="play" raised><a href="game/level1.php">Play</a></paper-button>
+          </div>
+          <div class="centered">
+            <paper-button id="play" raised><a href="skip.php">Skip Level</a></paper-button>
           </div>
         </div>
       </div>

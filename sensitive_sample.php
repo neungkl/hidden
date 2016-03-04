@@ -9,18 +9,26 @@
     /*...*/
   );
 
+  function incorrect_obj($msg) {
+    return array('status' => 'incorrect', 'msg' => $msg);
+  }
+
+  $correct_obj = array('status' => "correct");
+
   $PASS = array(
     array(),
     //level 1
     array(
-      "apple" => array("status" => "correct")
+      "android" => $correct_obj
     ),
     //level 2
     array(
-      "lava" => array("status" => "correct"),
-      "highlight" => array("status" => "incorrect", "msg" => "It's not a password. It's a verb !!")
+      "highlight" => incorrect_obj("It's not a password. It's a verb !"),
+      "lava" => $correct_obj,
     ),
     /*...*/
   );
 
 ?>
+
+test
