@@ -72,7 +72,7 @@ function include_game_footer( $path = "" ) {
   include_anlytics();
   ?>
   <script>
-  ga('send', 'event', 'game', 'level', '<?= $lvl_num ?>');
+  ga('send', 'event', 'level', '<?= $lvl_num ?>');
   </script>
   <?php
 }
