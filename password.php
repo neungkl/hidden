@@ -19,7 +19,7 @@
   }
 
   function safe_pass($pass) {
-    return trim(mysql_real_escape_string(strtolower($pass)));
+    return trim(strtolower($pass));
   }
 
   function pass_iden() {
@@ -32,6 +32,13 @@
     global $path, $PASS;    
 
     $pass = safe_pass($pass);
+
+    if(strlen($pass) == 0) {
+      return array(
+        "status" => "incorrect",
+        "msg" => "Please enter password."
+      );
+    }
 
     foreach( $PASS[$lvl] as $key => $value ) {
       if( safe_pass($key) == $pass ) {

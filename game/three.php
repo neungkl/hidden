@@ -27,7 +27,6 @@
         <div class="block">
           <div class="centered">
             <div style="font-size:2.5em;">Level <?= $lvl_num ?></div>
-            <div>Highlight</div>
             <div>Password is hidden.</div>
             <div  style="margin-bottom:40px;"></div>
 

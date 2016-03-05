@@ -60,10 +60,11 @@ function include_game_header( $path = "" ) {
 }
 
 function include_game_footer( $path = "" ) {
+  global $lvl_num;
   include_anlytics();
   ?>
   <script>
-  ga('send', 'event', 'level', '<?= $lvl_num ?>');
+  ga('send', 'event', 'game', 'level', '<?= $lvl_num ?>');
   </script>
   <?php
 }
