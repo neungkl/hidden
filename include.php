@@ -22,6 +22,14 @@ function include_css( $path = "" ) {
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.min.css' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   <link rel="import" href="<?= $path ?>bower_components/paper-button/paper-button.html">
+  <style>
+    paper-input-decorator[focused] /deep/ .floated-label .label-text {
+        color: #d50000;
+    }
+    paper-input-decorator /deep/ .focused-underline {
+        background-color: #d50000;
+    }
+  </style>
   <?php
 }
 

@@ -1,7 +1,7 @@
 'use strict';
 
-CoreStyle.g.paperInput.focusedColor = "#d50000";
-CoreStyle.g.paperInput.invalidColor = "#d50000";
+//CoreStyle.g.paperInput.focusedColor = "#d50000";
+//CoreStyle.g.paperInput.invalidColor = "#d50000";
 
 var err = function( txt ) {
   $("#err").attr("text",txt)[0].show();
