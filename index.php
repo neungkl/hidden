@@ -9,14 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- SEO //-->
-    <meta name="keywords" content="kozartae, kosate studio, hidden, question">
+    <meta name="keywords" content="kosate, kosate studio, hidden, question">
     <meta name="description" content="A place you can not exit.">
-    <meta property="og:image" content="http://project.kosatestudio.com/hidden/thumnail.png">
+    <meta property="og:image" content="http://kosate.com/project/hidden/thumnail.png">
     <meta property="og:title" content="Hidden">
     <meta property="og:type" content="website">
     <meta property="fb:admins" content="100000418457798">
     <meta name="twitter:card" content="summary">
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="../logo.png"/>
 
     <title>Hidden</title>
     <?php include_css(); ?>
@@ -94,7 +94,7 @@
             </div>
             <div style="margin-top:20px;">
               <div style="display: inline-block;">
-                <div class="fb-share-button" data-href="http://project.kosatestudio.com/hidden/" data-layout="button_count"></div>
+                <div class="fb-share-button" data-href="http://kosate.com/project/hidden/" data-layout="button_count"></div>
               </div>
               <div style="display: inline-block;">
                 <a href="https://twitter.com/share" class="twitter-share-button" data-text="H_dden. A place you can not exit.">Tweet</a>

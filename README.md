@@ -4,9 +4,9 @@ Hidden
 Hidden is a 25 levels game winning by entering the correct password of
 each task with curiosity text.
 
-<img src="preview.png" width="550">
+![Hidden](preview.png)
 
-Here is a game : [http://project.neungkl.com/hidden/](http://project.neungkl.com/hidden/)
+Here is a game : [http://kosate.com/project/hidden/](http://kosate.com/project/hidden/)
 
 ## Usage
 
